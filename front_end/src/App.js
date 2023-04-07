@@ -2,36 +2,36 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
 import Category from './components/category';
+import CategoryProduct from './components/category_products';
+import { fetcher } from './fetcher';
 
 function App() {
-  const [categories, setCategories] = useState([]);
-  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState( {errorMessage: '',data: [] } );
+  const [products, setProducts] = useState( {errorMessage: '',data: [] } );
 
   React.useEffect(() => {
-    fetch("http://localhost:3001/categories")
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        setCategories(data)
-      })
+    const fetchData = async () => {
+      const responseObject = await fetcher("/categories");
+      setCategories(responseObject);
+    }
+    fetchData();
   }, [])
 
    const handleCategoryClick = id => {
-    fetch("http://localhost:3001/products?catId=" + id)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        setProducts(data)
-      })
+    const fetchData = async () => {
+      const responseObject = await fetcher("/products?catId=" +id);
+      setProducts(responseObject);
+    }
+    fetchData();
   }
 
   const renderCategories = () => {
-    return categories.map(c =>
+    return categories.data.map(c =>
       <Category key={c.id} id={c.id} title={c.title} onCategoryClick = {() => handleCategoryClick(c.id)}  />)
   }
 
   const renderProducts = () => {
-    return products.map(p => <div key={p.id}>{p.title}</div>)
+    return products.data.map(p => <CategoryProduct {...p}> {p.title} </CategoryProduct>);
  }
 
   return (
@@ -40,13 +40,13 @@ function App() {
 
     <section>
       <nav>
-        {
-        categories && renderCategories()
-      }
+        {categories.errorMessage && <div>Hiba: {categories.errorMessage} </div>}
+        { categories.data && renderCategories() }
       </nav>
       <article>
         <h1>Termékek</h1>
-        { products && renderProducts()}
+        { products.errorMessage && <div>Hiba: {products.errorMessage} </div>}
+        { products.data && renderProducts()}
       </article>
     </section>
 
