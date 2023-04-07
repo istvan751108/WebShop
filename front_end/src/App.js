@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
+import Category from './components/category';
 
 function App() {
   const [results, setResults] = useState([]);
@@ -13,6 +14,12 @@ function App() {
         setResults(data)
       })
   }, [])
+
+  const renderCategories = () => {
+    return results.map(c =>
+      <Category key={c.id} id={c.id} title={c.title} />)
+  }
+
   return (
     <>
     <header>Webáruház</header>
@@ -20,9 +27,7 @@ function App() {
     <section>
       <nav>
         {
-        results.map(categori => (
-          <div key={categori.id}>{categori.title}</div>
-        ))
+        renderCategories()
       }
       </nav>
       <article>
