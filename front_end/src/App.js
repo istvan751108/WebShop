@@ -4,21 +4,35 @@ import React, { useState } from 'react';
 import Category from './components/category';
 
 function App() {
-  const [results, setResults] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
 
   React.useEffect(() => {
     fetch("http://localhost:3001/categories")
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        setResults(data)
+        setCategories(data)
       })
   }, [])
 
-  const renderCategories = () => {
-    return results.map(c =>
-      <Category key={c.id} id={c.id} title={c.title} />)
+   const handleCategoryClick = id => {
+    fetch("http://localhost:3001/products?catId=" + id)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setProducts(data)
+      })
   }
+
+  const renderCategories = () => {
+    return categories.map(c =>
+      <Category key={c.id} id={c.id} title={c.title} onCategoryClick = {() => handleCategoryClick(c.id)}  />)
+  }
+
+  const renderProducts = () => {
+    return products.map(p => <div key={p.id}>{p.title}</div>)
+ }
 
   return (
     <>
@@ -27,11 +41,12 @@ function App() {
     <section>
       <nav>
         {
-        renderCategories()
+        categories && renderCategories()
       }
       </nav>
       <article>
-        Fő terület
+        <h1>Termékek</h1>
+        { products && renderProducts()}
       </article>
     </section>
 
