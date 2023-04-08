@@ -13,3 +13,8 @@ export const fetcher =  async (url) => {
     }
     return responseObject;
 }
+
+export const getProductById = id => {
+    return fetcher('/products/' + id);
+  }
+  
