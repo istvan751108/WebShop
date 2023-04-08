@@ -4,7 +4,7 @@ import { getProductById } from '../fetcher';
 import styled from "styled-components";
 
 const ProductDetail = () => {
-    const [product, setProduct] = React.useState({errorMessage: '',data: [] })
+    const [product, setProduct] = React.useState({errorMessage: '',data: {} })
     const {productId} = useParams();
 
     React.useEffect(() => {

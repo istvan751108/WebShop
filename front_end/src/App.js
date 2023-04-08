@@ -1,59 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
+import { getCategories } from "./fetcher";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import ProductDetail from './components/product_details';
+import Basket from './components/basket';
+import Checkout from './components/checkout';
 import Category from './components/category';
-import CategoryProduct from './components/category_products';
-import { fetcher } from './fetcher';
+import Layout from './components/layout';
+import Home from './components/home';
 
 
 function App() {
   const [categories, setCategories] = useState( {errorMessage: '',data: [] } );
-  const [products, setProducts] = useState( {errorMessage: '',data: [] } );
 
   React.useEffect(() => {
     const fetchData = async () => {
-      const responseObject = await fetcher("/categories");
-      setCategories(responseObject);
-    }
+        const responseObject = await getCategories();
+        setCategories(responseObject);
+    };
     fetchData();
-  }, [])
+}, []);
 
-   const handleCategoryClick = id => {
-    const fetchData = async () => {
-      const responseObject = await fetcher("/products?catId=" +id);
-      setProducts(responseObject);
-    }
-    fetchData();
-  }
-
-  const renderCategories = () => {
-    return categories.data.map(c =>
-      <Category key={c.id} id={c.id} title={c.title} onCategoryClick = {() => handleCategoryClick(c.id)}  />)
-  }
-
-  const renderProducts = () => {
-    return products.data.map(p => <CategoryProduct key={p.id} {...p}> {p.title} </CategoryProduct>);
- }
+  
 
   return (
     <>
-    <header>Webáruház</header>
-
-    <section>
-      <nav>
-        {categories.errorMessage && <div>Hiba: {categories.errorMessage} </div>}
-        { categories.data && renderCategories() }
-      </nav>
-      <article>
-        <h1>Termékek</h1>
-        { products.errorMessage && <div>Hiba: {products.errorMessage} </div>}
-        { products.data && renderProducts()}
-      </article>
-    </section>
-
-    <footer>
-      Lábrész
-    </footer>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout categories={categories} />} >
+          <Route index element={<Home />} />
+          <Route path='basket' element={<Basket />} />
+          <Route path='checkout' element={<Checkout />} />
+          <Route path='products/:productId' element={<ProductDetail />} />
+          <Route path='categories/:categoryId' element={<Category />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
     </>
     
   );

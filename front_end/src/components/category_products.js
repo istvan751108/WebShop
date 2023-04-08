@@ -3,16 +3,18 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const CategoryProduct = ({id, title, image, specs, features, price, stock}) => {
     const navigate = useNavigate();
+    console.log({id});
   return (
     <article className='category-article'>
         <div className='category-product-title'>
             
-           <Link to={`products/${id}`} >{title}</Link> 
+           <Link to={`/products/${id}`} >{title}</Link> 
+           
         </div>
 
         <figure>
             <div className='category-rpoduct-image-container'>
-                <img src={`./assets/${image}`} alt={title} />
+                <img src={`/assets/${image}`} alt={title} />
             </div>
         </figure>
 
@@ -47,7 +49,7 @@ const CategoryProduct = ({id, title, image, specs, features, price, stock}) => {
             </div>
 
             <div className='category-product-action'>
-                <button onClick={() => navigate(`products/${id}`)} >Részletes leírás</button>
+                <button onClick={() => navigate(`/products/${id}`)} >Részletes leírás</button>
                 <button>Kosárba rakom</button>
             </div>
 
