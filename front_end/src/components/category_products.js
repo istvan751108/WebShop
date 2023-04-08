@@ -1,15 +1,20 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
-const CategoryProduct = ({title, image, specs, features, price, stock}) => {
+const CategoryProduct = ({id, title, image, specs, features, price, stock}) => {
+    const navigate = useNavigate();
+    console.log({id});
   return (
     <article className='category-article'>
         <div className='category-product-title'>
-            {title}
+            
+           <Link to={`/products/${id}`} >{title}</Link> 
+           
         </div>
 
         <figure>
             <div className='category-rpoduct-image-container'>
-                <img src={`./assets/${image}`} alt={title} />
+                <img src={`/assets/${image}`} alt={title} />
             </div>
         </figure>
 
@@ -29,14 +34,14 @@ const CategoryProduct = ({title, image, specs, features, price, stock}) => {
             <div className='category-product-info-features'>
                 <h3>Tulajdonságok</h3>
                 <ul>
-                    {features?.map((f) => {return <li> {f} </li>})}
+                    {features?.map((f, i) => {return <li key={`feature${i}`} > {f} </li>})}
                 </ul>
             </div>
         </aside>
 
         <aside className='category-rpoduct-finance'>
-            <div className='category-rpoduct-finance-price'>
-                Ft: {price}
+            <div className='category-product-info-finance-price'>
+                 {price} Ft
             </div>
 
             <div className='category-product-info-stock'>
@@ -44,8 +49,8 @@ const CategoryProduct = ({title, image, specs, features, price, stock}) => {
             </div>
 
             <div className='category-product-action'>
+                <button onClick={() => navigate(`/products/${id}`)} >Részletes leírás</button>
                 <button>Kosárba rakom</button>
-                <button>Megnézem</button>
             </div>
 
         </aside>
