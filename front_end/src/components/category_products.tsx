@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { ProductsProps } from '../model';
 
-const CategoryProduct = ({id, title, image, specs, features, price, stock}) => {
+
+const CategoryProduct: FC<ProductsProps> = ({id,title,image,specs,features,price,stock}) => {
     const navigate = useNavigate();
-    console.log({id});
   return (
     <article className='category-article'>
         <div className='category-product-title'>

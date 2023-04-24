@@ -1,6 +1,6 @@
 const BASE_URL = "http://localhost:3001";
 
-export const fetcher =  async (url) => {
+export const fetcher =  async (url: string) => {
     let responseObject = {errorMessage: '', data: []};
     try {
         const response = await fetch(BASE_URL + url);
@@ -9,7 +9,7 @@ export const fetcher =  async (url) => {
         responseObject.data = responseData;
     }
     catch (err) {
-        responseObject.errorMessage = err.message;
+        // responseObject.errorMessage = err.message;
     }
     return responseObject;
 }
@@ -18,11 +18,11 @@ export const getCategories = () => {
     return fetcher('/categories');
   }
 
-export const getProducts = id => {
+export const getProducts = (id: number) => {
     return fetcher('/products?catId=' + id);
   }
 
-export const getProductById = id => {
+export const getProductById = (id: number) => {
     return fetcher('/products/' + id);
   }
   

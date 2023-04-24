@@ -1,7 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { getProductById } from '../fetcher';
-import styled from "styled-components";
 
 const ProductDetail = () => {
     const [product, setProduct] = React.useState({errorMessage: '',data: {} })
@@ -64,9 +63,9 @@ const ProductDetail = () => {
 
         </aside>
 
-        <ProductInfoDescription>
+        <div className='product-info-desciption'>
             {product.data?.description} 
-        </ProductInfoDescription>
+        </div>
 
     </article>
     
@@ -75,7 +74,3 @@ const ProductDetail = () => {
 
 export default ProductDetail
 
-const ProductInfoDescription = styled.div`
-    grid-column: 1 / span 3;
-    padding: 20px;
-`;
