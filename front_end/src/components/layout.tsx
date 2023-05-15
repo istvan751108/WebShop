@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Link, Outlet } from 'react-router-dom'
+import {Categories} from '../model/categories'
 
-const Layout = ({categories}) => {
+
+const Layout: FC<Categories> = ({categories}) => {
 
     const renderCategories = () => {
         return categories.data.map(c =>
