@@ -8,20 +8,20 @@
     {
       "id": 1,
       "catId": 1,
-      "title": "Beko Integrated Tall Freezer White",
+      "title": "Beko kombinált felülfagyasztós hűtőszekrény, Fehér",
       "productCode": "BFFD3577",
       "image": "10213776.jfif",
       "price": 231600,
       "sku": "577318",
-      "description": "The Beko BFFD3577 Integrated Tall Freezer has a 220-litre capacity that's ideal for larger households.\nIt also features six clear storage drawers that make it easy to organise your shopping. The two storage shelves give you even more space to store your family favourites.Fast FreezeNeed to quickly freeze your groceries? Select the fast freeze setting. It quickly freezes fresh food, preserving its taste and nutrients. Perfect for when you've just got back from the supermarket.\nFrost Free\nNo need to manually defrost the freezer thanks to the BFFD3577's Frost Free technology. This handy feature prevents ice build-up, saving you time and effort while freeing-up more storage space.",
-      "specs": {"dimensions": "177.5 x 54 x 54.5cm (H x W x D)", "capacity": "220 litres"},
-      "features": ["No need to defrost with frost free technology", "Suitable for outbuildings", "Sliding hinge", "Fast freeze"],
+      "description": "A Beko BFFD3577 kombinált felülfagyasztós hűtőszekrény 220 literes kapacitása ideális nagyobb háztartások számára.\nHat átlátszó tárolófiókkal is rendelkezik, amelyek megkönnyítik a megvásárolt termékei rendszerezését. A két tárolópolc még több helyet biztosít családja kedvenc termékei tárolására.Gyorsan le kell fagyasztania élelmiszereit? Válassza ki a gyorsfagyasztás beállítást! Így gyorsan lefagyaszthatja a friss élelmiszereket, megőrízve azok ízét és tápanyagait. Tökéletes, ha éppen most ért haza a szupermarketből.A BFFD3577 FROST FREE technológiájának köszönhetően nincs szükség afagyasztó kézi leolvasztására. Ez a praktikus funkció megakadályozza a jégképződést, így időt és munkát takarít meg, miközben több tárhelyet szabadít fel.",
+      "specs": {"dimensions": "177.5 x 54 x 54.5cm (H x W x D)", "capacity": "220 liter"},
+      "features": ["A Frost free technológiával nincs szükség leolvasztásra", "Melléképületekbe is alkalmas", "Megfordítható ajtópántok", "Gyors fagyasztás"],
       "stock": 20
     },
     {
       "id": 2,
       "catId": 1,
-      "title": "Essentials Undercounter Fridge Silver",
+      "title": "Essentials pult alá építhető hűtőszekrény, Ezüst",
       "productCode": "CUL55S20",
       "image": "10205942.jfif",
       "price": 67600,
@@ -33,7 +33,7 @@
     {
         "id": 3,
         "catId": 1,
-        "title": "Kenwood KTLD60X20 Tall Fridge",
+        "title": "Kenwood KTLD60X20 magas hűtőszekrény",
         "productCode": "KTLD60X20",
         "image": "10205751.jfif",
         "price": 179600,
@@ -46,7 +46,7 @@
     {
         "id": 4,
         "catId": 1,
-        "title": "BEKO BLSD3577 Integrated Tall Fridge",
+        "title": "BEKO BLSD3577 kombinált hűtőszekrény",
         "productCode": "BLSD3577",
         "image": "10212871.jfif",
         "price": 1798200,
@@ -59,7 +59,7 @@
     {
         "id": 5,
         "catId": 1,
-        "title": "ZANUSSI MultiFlow ZRME38FW2 Tall Fridge White",
+        "title": "ZANUSSI MultiFlow ZRME38FW2 magas hűtőszekrény, fehér",
         "productCode": "ZRME38FW2",
         "image": "10213409.jfif",
         "price": 221600,
