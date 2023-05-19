@@ -40,7 +40,7 @@
         "sku": "287103",
         "description": "Attractive design\n\nThe Kenwood KTLD60X20 Tall Fridge is spacious and practical with a sleek and modern design. It has a glossy stainless steel finish and an LED display, allowing you to adjust the temperature and change the settings to suit your needs.\n\n  All the space you need\n\nThis 185 cm Tall Fridge has a storage capacity of 370 litres, giving you enough space to store groceries for the whole family. It also features 4 shelves, 4 door compartments and 2 salad crispers that will keep your fruit and vegetables fresh for longer.\n\nPlus, it comes with a water dispenser to keep you hydrated.\n\nEfficient and easy-to-use\n\nThis fridge comes packed with smart features, including the Super Cool function, which cools down your food quickly and efficiently. The temperature of the fridge will also stay constant thanks to the Multi-Airflow cooling feature. And you won't even have to defrost it yourself thanks to automatic defrosting.\n\nThe audible door alarm will help you save energy and keep your food in good condition for longer.",
         "specs": {"dimensions": "185.5 x 59.5 x 71.2 cm (H x W x D)", "capacity": "370 liter"},
-        "features": ["Water dispenser (no plumbing required)", "Food freshness feature to keep your fruit and veg fresh", "Fast chill rapidly lowers the temperature inside the fridge"],
+        "features": ["Vízadagoló (nincs szükség a víz bekötésére)", "Élelmiszer-frissesség funkció a gyümölcsök és zöldségek frissen tartása érdekében", "A gyors hűtés gyorsan csökkenti a hőmérsékletet a hűtőszekrény belsejében"],
         "stock": 10
     },
     {
@@ -66,7 +66,7 @@
         "sku": "670811",
         "description": "MultiFlow technology\n\nThe Zanussi MultiFlow ZRME38FW2 Tall Fridge uses MultiFlow technology to keep your food at its very best. It keeps the temperature stable, with cool air reaching every part of the fridge.\n\nThat means your food will last longer, and stay fresh and tasty.\n\nPremium flat door\n\nThe flat fridge door looks great - there's no protruding parts, and there's a seamless look from top to bottom",
         "specs": {"dimensions": "186 x 59.5 x 64.5 cm (H x W x D)", "capacity": "380 liter"},
-        "features": ["Food freshness feature to keep your fruit and veg fresh", "A gyors hűtés gyorsan csökkenti a hőmérsékletet a hűtőszekrény belsejében", "Automatikus leolvasztás"],
+        "features": ["Élelmiszer-frissesség funkció a gyümölcsök és zöldségek frissen tartása érdekében", "A gyors hűtés gyorsan csökkenti a hőmérsékletet a hűtőszekrény belsejében", "Automatikus leolvasztás"],
         "stock": 5
     },
     {

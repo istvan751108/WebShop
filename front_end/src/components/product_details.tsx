@@ -24,13 +24,13 @@ React.useEffect(() => {
       <div className='category-product-title'>{product.data.title}</div>
 
       <figure>
-        <div className='category-rpoduct-image-container'>
+        <div className='category-product-image-container'>
           <img src={`/assets/${product.data.image}`} alt={product.data.title} />
         </div>
       </figure>
 
       <aside className='category-product-info-header'>
-        <div className='category-rpoduct-info-dimensions'>
+        <div className='category-product-info-dimensions'>
           <h3>Méretek</h3>
           <label> {product.data.specs?.dimensions} </label>
         </div>
@@ -52,7 +52,7 @@ React.useEffect(() => {
         </div>
       </aside>
 
-      <aside className='category-rpoduct-finance'>
+      <aside className='category-product-finance'>
         <div className='category-product-info-finance-price'>
           {product.data.price} Ft
         </div>

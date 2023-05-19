@@ -35,7 +35,8 @@ const CategoryProduct: FC<ProductsProps> = ({id,title,image,specs,features,price
             <div className='category-product-info-features'>
                 <h3>Tulajdonságok</h3>
                 <ul>
-                    {features?.map((f, i) => {return <li key={`feature${i}`} > {f} </li>})}
+                    {features?.map((f, i) => {
+                        return <li key={`feature${i}`} > {f} </li>})}
                 </ul>
             </div>
         </aside>
