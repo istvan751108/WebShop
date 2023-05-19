@@ -27,7 +27,7 @@
       "price": 67600,
       "sku": "287494",
       "description": "Keep your fresh food tasting great in the Essentials CUL55S20 Undercounter Fridge. Store your dairy, meat, fish, and vegetables with ease. It delivers an efficient performance, which is great for your pocket, and the planet too!\n\nAdjustable shelves let you store even awkward shaped food products and make it easier to store everything. Not enough room? Make space by moving the shelves around. Simple.\n\nPop your vegetables in the salad compartment to keep them at their freshest and make the most of their shelf life. With transparent drawer fronts, you won't have to rummage around to see what you've got left.\n\nThe CUL55S20 has a reversible door, so no need to worry if you want to change the layout of your kitchen.",
-      "specs": {"dimensions": "84.5 x 55.3 x 58.4 cm (H x W x D)", "capacity": "131 litres"},
+      "specs": {"dimensions": "84.5 x 55.3 x 58.4 cm (H x W x D)", "capacity": "131 liter"},
       "stock": 0
     },
     {
@@ -39,7 +39,7 @@
         "price": 179600,
         "sku": "287103",
         "description": "Attractive design\n\nThe Kenwood KTLD60X20 Tall Fridge is spacious and practical with a sleek and modern design. It has a glossy stainless steel finish and an LED display, allowing you to adjust the temperature and change the settings to suit your needs.\n\n  All the space you need\n\nThis 185 cm Tall Fridge has a storage capacity of 370 litres, giving you enough space to store groceries for the whole family. It also features 4 shelves, 4 door compartments and 2 salad crispers that will keep your fruit and vegetables fresh for longer.\n\nPlus, it comes with a water dispenser to keep you hydrated.\n\nEfficient and easy-to-use\n\nThis fridge comes packed with smart features, including the Super Cool function, which cools down your food quickly and efficiently. The temperature of the fridge will also stay constant thanks to the Multi-Airflow cooling feature. And you won't even have to defrost it yourself thanks to automatic defrosting.\n\nThe audible door alarm will help you save energy and keep your food in good condition for longer.",
-        "specs": {"dimensions": "185.5 x 59.5 x 71.2 cm (H x W x D)", "capacity": "370 litres"},
+        "specs": {"dimensions": "185.5 x 59.5 x 71.2 cm (H x W x D)", "capacity": "370 liter"},
         "features": ["Water dispenser (no plumbing required)", "Food freshness feature to keep your fruit and veg fresh", "Fast chill rapidly lowers the temperature inside the fridge"],
         "stock": 10
     },
@@ -49,11 +49,11 @@
         "title": "BEKO BLSD3577 kombinált hűtőszekrény",
         "productCode": "BLSD3577",
         "image": "10212871.jfif",
-        "price": 1798200,
+        "price": 179820,
         "sku": "784324",
         "description": "Chiller compartment\n\nGet more room for your weekly shop with the Beko BLSD3577 Integrated Tall Fridge. It offers 309 litres of storage space across 6 shelves, 5 door balconies and a large salad crisper.\n\nThe integrated chiller compartment stores your meat, fish and dairy products at a temperature of around 0 °C - ideal for keeping them fresh for longer.\n\nChrome wine rack\n\nWant extra shelf space? You can easily store soft drinks or bottles of wine on the wire rack.\n\nReversible doors\n\nFor those with smaller kitchens, reversible doors give you the flexibility to choose where you position the fridge.\n\nEasy to monitor\n\nAdjust the temperature easily with the touch controls. Try Quick Cool to rapidly lower the temperature or Holiday Mode if you're going away for a while.\n\nThe fridge will alert you when the door is left open, so you can rest assured that your groceries will stay fresh and chilled.",
-        "specs": {"dimensions": "177.5 x 54 x 54.5 cm (H x W x D)", "capacity": "309 litres"},
-        "features": ["Fast chill rapidly lowers the temperature inside the fridge", "Open door alarm warns you if the door is left open", "Auto defrost"],
+        "specs": {"dimensions": "177.5 x 54 x 54.5 cm (H x W x D)", "capacity": "309 liter"},
+        "features": ["A gyors hűtés gyorsan csökkenti a hőmérsékletet a hűtőszekrény belsejében", "A nyitott ajtó riasztó figyelmezteti Önt, ha az ajtó nyitva marad", "Automatikus leolvasztás"],
         "stock": 5
     },
     {
@@ -65,8 +65,8 @@
         "price": 221600,
         "sku": "670811",
         "description": "MultiFlow technology\n\nThe Zanussi MultiFlow ZRME38FW2 Tall Fridge uses MultiFlow technology to keep your food at its very best. It keeps the temperature stable, with cool air reaching every part of the fridge.\n\nThat means your food will last longer, and stay fresh and tasty.\n\nPremium flat door\n\nThe flat fridge door looks great - there's no protruding parts, and there's a seamless look from top to bottom",
-        "specs": {"dimensions": "186 x 59.5 x 64.5 cm (H x W x D)", "capacity": "380 litres"},
-        "features": ["Food freshness feature to keep your fruit and veg fresh", "Fast chill rapidly lowers the temperature inside the fridge", "Auto defrost"],
+        "specs": {"dimensions": "186 x 59.5 x 64.5 cm (H x W x D)", "capacity": "380 liter"},
+        "features": ["Food freshness feature to keep your fruit and veg fresh", "A gyors hűtés gyorsan csökkenti a hőmérsékletet a hűtőszekrény belsejében", "Automatikus leolvasztás"],
         "stock": 5
     },
     {

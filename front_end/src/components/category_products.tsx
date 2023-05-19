@@ -14,13 +14,13 @@ const CategoryProduct: FC<ProductsProps> = ({id,title,image,specs,features,price
         </div>
 
         <figure>
-            <div className='category-rpoduct-image-container'>
+            <div className='category-product-image-container'>
                 <img src={`/assets/${image}`} alt={title} />
             </div>
         </figure>
 
         <aside className='category-product-info-header'>
-            <div className='category-rpoduct-info-dimensions'>
+            <div className='category-product-info-dimensions'>
                 <h3>Méretek</h3>
                 <label> {specs.dimensions} </label>
             </div>
@@ -40,7 +40,7 @@ const CategoryProduct: FC<ProductsProps> = ({id,title,image,specs,features,price
             </div>
         </aside>
 
-        <aside className='category-rpoduct-finance'>
+        <aside className='category-product-finance'>
             <div className='category-product-info-finance-price'>
                  {price} Ft
             </div>
