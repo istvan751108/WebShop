@@ -113,12 +113,12 @@ footer a {
   padding-left: 10px;
 }
 
-.category-rpoduct-image-container {
+.category-product-image-container {
   padding: 10px;
   width: 60%;
 }
 
-.category-rpoduct-image-container img {
+.category-product-image-container img {
   width: 100%;
   height: 100%;
 }
@@ -135,13 +135,13 @@ footer a {
   padding-top: 10px;
 }
 
-.category-rpoduct-info-dimensions,
+.category-product-info-dimensions,
 .category-product-info-capacity {
   display: flex;
   flex-direction: column;
 }
 
-.category-rpoduct-info-dimensions h3,
+.category-product-info-dimensions h3,
 .category-product-info-capacity h3,
 .category-product-info-features h3 {
   color: darkslategray;
