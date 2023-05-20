@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { getProducts } from '../fetcher';
-import CategoryProduct from './category_products';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getProducts } from "../fetcher";
+import CategoryProduct from "./category_products";
 
 const Category = () => {
-  const [products, setProducts] = useState({ errorMessage: '', data: [] });
+  const [products, setProducts] = useState({
+    errorMessage: "",
+    data: [],
+  });
   const { categoryId } = useParams();
 
   useEffect(() => {
