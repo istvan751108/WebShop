@@ -1,37 +1,68 @@
-import React, { createContext, useState, ReactNode } from 'react';
+import React, { createContext, useReducer, ReactNode } from 'react';
+import { CartReducer } from './cartReducer';
 
-interface CartContextValue {
-  cartItems: any[]; // Itt helyettesítsd az `any[]` típust a tényleges típussal, amit a kosár kontextus használ.
-  addProduct: (payLoad: any) => void;
+interface CartItem {
+  // Definiáld a cart elemek típusát
 }
 
-export const CartContext = createContext<CartContextValue>({ cartItems: [], addProduct: () => {} });
+interface CartContextProps {
+  addProduct: (payLoad: CartItem) => void;
+  removeProduct: (payLoad: CartItem) => void;
+  increaseQuantity: (payLoad: CartItem) => void;
+  decreaseQuantity: (payLoad: CartItem) => void;
+  clearBasket: () => void;
+  getItems: () => CartItem[];
+  cartItems: CartItem[];
+}
 
+export const CartContext = createContext<CartContextProps>({} as CartContextProps);
 
-const CartContextProvider = ({ children }: { children: ReactNode }) => {
-  const [cartItems, setCartItems] = useState<any[]>([]);
+interface CartContextProviderProps {
+  children: ReactNode;
+}
 
-  const addProduct = (payLoad: any) => {
-    setCartItems((prevItems) => {
-      const index = prevItems.findIndex((x) => x.id === payLoad.id);
+const initialState = { cartItems: [] };
 
-      if (index === -1) {
-        return [...prevItems, { ...payLoad, quantity: 1 }];
-      } else {
-        const updatedCartItems = [...prevItems];
-        updatedCartItems[index].quantity++;
-        return updatedCartItems;
-      }
-    });
+const CartContextProvider: React.FC<CartContextProviderProps> = ({ children }) => {
+  const [state, dispatch] = useReducer(CartReducer.reducer, initialState);
+
+  const addProduct = (payLoad: CartItem) => {
+    dispatch({ type: 'ADD', payLoad });
   };
 
-  const contextValues: CartContextValue = {
-    cartItems,
+  const removeProduct = (payLoad: CartItem) => {
+    dispatch({ type: 'REMOVE', payLoad });
+  };
+
+  const increaseQuantity = (payLoad: CartItem) => {
+    dispatch({ type: 'INCQTY', payLoad });
+  };
+
+  const decreaseQuantity = (payLoad: CartItem) => {
+    dispatch({ type: 'DECQTY', payLoad });
+  };
+
+  const clearBasket = () => {
+    dispatch({ type: 'CLEAR', payLoad: undefined });
+  };
+
+  const getItems = () => {
+    return state.cartItems;
+  };
+
+  const contextValues: CartContextProps = {
     addProduct,
+    removeProduct,
+    increaseQuantity,
+    decreaseQuantity,
+    clearBasket,
+    getItems,
+    ...state,
   };
 
   return <CartContext.Provider value={contextValues}>{children}</CartContext.Provider>;
 };
 
 export default CartContextProvider;
+
 

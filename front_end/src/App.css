@@ -191,7 +191,7 @@ footer a {
   background-color: darkgray;
 }
 
-.product-info-desciption {
+.product-info-description {
   grid-column: 1 / span 3;
   padding: 20px;
 }

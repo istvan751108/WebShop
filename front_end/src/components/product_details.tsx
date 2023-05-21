@@ -66,7 +66,7 @@ const ProductDetail = () => {
         </div>
       </aside>
 
-      <div className="product-info-desciption">{product.data?.description}</div>
+      <div className="product-info-description">{product.data?.description}</div>
     </article>
   );
 };
