@@ -1,13 +1,16 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
-import { getCategories } from "./fetcher";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { getCategories } from "./fetcher";
+
 import ProductDetail from "./components/product_details";
 import Basket from "./components/basket";
 import Checkout from "./components/checkout";
 import Category from "./components/category";
-import Layout from "./components/layout";
 import Home from "./components/home";
+import Layout from "./components/layout";
 
 function App() {
   const [categories, setCategories] = useState<{
