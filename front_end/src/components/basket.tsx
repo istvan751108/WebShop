@@ -4,11 +4,13 @@ import styled from "styled-components";
 
 import { Link, useNavigate } from "react-router-dom";
 
+import {UpIcon, DownIcon, TrashIcon} from "./icons";
+
 import { CartContext } from "../contexts/cartContext";
 
 const Basket = () => {
   const navigate = useNavigate();
-  const { getItems } = useContext(CartContext);
+  const { getItems, clearBasket, increaseQuantity, decreaseQuantity, removeProduct } = useContext(CartContext);
   const renderCart = () => {
     const cartItems = getItems();
   
@@ -17,8 +19,14 @@ const Basket = () => {
         <React.Fragment>
           <div>
             <Link to={`/products/${p.id}`}>{p.title}</Link>
+
           </div>
-          <BasketQty>{p.quantity}</BasketQty>
+          <BasketQty>
+            {p.quantity}
+            <UpIcon width={20} onClick={() => increaseQuantity({id: p.id})} />
+            <DownIcon width={20} onClick={() => decreaseQuantity({id: p.id})}/>
+            <TrashIcon width={20} onClick={() => removeProduct({id: p.id})}/>
+          </BasketQty>
           <BasketPrice>{p.price} Ft</BasketPrice>
         </React.Fragment>
       ));
@@ -31,7 +39,7 @@ const Basket = () => {
   return (
     <BasketContainer>
       <BasketTitle>Bevásárlókosár</BasketTitle>
-      <BasketButton>Pénztár</BasketButton>
+      <BasketButton onClick={() => navigate('/checkout')}>Pénztár</BasketButton>
       <BasketTable>
         <BasketHeader>
           <h4>Tétel</h4>
@@ -45,7 +53,7 @@ const Basket = () => {
 
         <BasketHeaderLine />
 
-        <BasketButton>Kosár ürítése</BasketButton>
+        <BasketButton onClick={() => clearBasket() }>Kosár ürítése</BasketButton>
         <BasketTotal>Összesen: 0Ft</BasketTotal>
       </BasketTable>
     </BasketContainer>
@@ -74,7 +82,7 @@ const BasketTable = styled.div`
 
 const BasketHeader = styled.div`
   display: grid;
-  grid-template-columns: 1fr 0.5fr 0.5fr;
+  grid-template-columns: 1fr 1fr 0.5fr;
 `;
 
 const BasketHeaderLine = styled.hr`
@@ -93,6 +101,7 @@ const BasketQty = styled.h3`
   font-size: 18px;
   font-weight: bold;
   display: grid;
+  padding-left: 20px;
   grid-template-columns: 0.1fr 0.05fr 0.1fr 0.1fr;
 `;
 
@@ -103,6 +112,7 @@ const BasketPrice = styled.h3`
 
 const BasketTotal = styled.h2`
   justify-self: end;
+  padding-top: 20px;
 `;
 
 const BasketButton = styled.button`
