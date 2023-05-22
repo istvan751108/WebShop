@@ -35,6 +35,17 @@ const Basket = () => {
     }
   };
 
+  const renderTotal = () => {
+    const cartItems = getItems();
+    const total = cartItems.reduce((acc, item) => {
+      const price = typeof item.price === 'number' ? item.price : 0;
+      const quantity = typeof item.quantity === 'number' ? item.quantity : 0;
+      return acc + price * quantity;
+    }, 0);
+    return total;
+  };
+  
+  
 
   return (
     <BasketContainer>
@@ -53,9 +64,9 @@ const Basket = () => {
 
         <BasketHeaderLine />
 
-        <BasketButton onClick={() => clearBasket() }>Kosár ürítése</BasketButton>
-        <BasketTotal>Összesen: 0Ft</BasketTotal>
       </BasketTable>
+      <BasketButton onClick={() => clearBasket() }>Kosár ürítése</BasketButton>
+        <BasketTotal>Összesen: {renderTotal()} Ft</BasketTotal>
     </BasketContainer>
   );
 };
