@@ -1,5 +1,5 @@
-import React, { createContext, useReducer, ReactNode } from 'react';
-import { CartReducer } from './cartReducer';
+import React, { createContext, useReducer, ReactNode } from "react";
+import { CartReducer } from "./cartReducer";
 
 interface CartItem {
   [x: string]: ReactNode;
@@ -16,7 +16,9 @@ interface CartContextProps {
   cartItems: CartItem[];
 }
 
-export const CartContext = createContext<CartContextProps>({} as CartContextProps);
+export const CartContext = createContext<CartContextProps>(
+  {} as CartContextProps
+);
 
 interface CartContextProviderProps {
   children: ReactNode;
@@ -24,27 +26,29 @@ interface CartContextProviderProps {
 
 const initialState = { cartItems: [] };
 
-const CartContextProvider: React.FC<CartContextProviderProps> = ({ children }) => {
+const CartContextProvider: React.FC<CartContextProviderProps> = ({
+  children,
+}) => {
   const [state, dispatch] = useReducer(CartReducer.reducer, initialState);
 
   const addProduct = (payLoad: CartItem) => {
-    dispatch({ type: 'ADD', payLoad });
+    dispatch({ type: "ADD", payLoad });
   };
 
   const removeProduct = (payLoad: CartItem) => {
-    dispatch({ type: 'REMOVE', payLoad });
+    dispatch({ type: "REMOVE", payLoad });
   };
 
   const increaseQuantity = (payLoad: CartItem) => {
-    dispatch({ type: 'INCQTY', payLoad });
+    dispatch({ type: "INCQTY", payLoad });
   };
 
   const decreaseQuantity = (payLoad: CartItem) => {
-    dispatch({ type: 'DECQTY', payLoad });
+    dispatch({ type: "DECQTY", payLoad });
   };
 
   const clearBasket = () => {
-    dispatch({ type: 'CLEAR', payLoad: undefined });
+    dispatch({ type: "CLEAR", payLoad: undefined });
   };
 
   const getItems = () => {
@@ -61,9 +65,11 @@ const CartContextProvider: React.FC<CartContextProviderProps> = ({ children }) =
     ...state,
   };
 
-  return <CartContext.Provider value={contextValues}>{children}</CartContext.Provider>;
+  return (
+    <CartContext.Provider value={contextValues}>
+      {children}
+    </CartContext.Provider>
+  );
 };
 
 export default CartContextProvider;
-
-

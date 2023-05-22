@@ -16,11 +16,15 @@ const Layout: FC<Categories> = ({ categories }) => {
     <>
       <header>
         <div id="headerHomeIcon">
-        <Link to='/'><HomeIcon width={40} /></Link>
+          <Link to="/">
+            <HomeIcon width={40} />
+          </Link>
         </div>
         <div id="headerTitle">WEBÁRUHÁZ</div>
         <div id="headerCartIcon">
-          <Link to='/basket'><CartIcon width={40} /></Link>
+          <Link to="/basket">
+            <CartIcon width={40} />
+          </Link>
         </div>
       </header>
 

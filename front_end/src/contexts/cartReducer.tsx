@@ -10,14 +10,16 @@ export class CartReducer {
         
         switch (action.type) {
             case "ADD":
-            case "INCQTY":    
-                if (index === -1) {
-                    state.cartItems.push({ ...action.payLoad, quantity: 1 });
-                }
-                else {
-                    state.cartItems[index].quantity++;
-                }
-                break;
+                case "INCQTY":
+                  if (index === -1) {
+                    state.cartItems = [...state.cartItems, { ...action.payLoad, quantity: 1 }];
+                  } else {
+                    state.cartItems = state.cartItems.map((item: any, idx: number) =>
+                      idx === index ? { ...item, quantity: item.quantity + 1 } : item
+                    );
+                  }
+                  break;
+                
 
             case "REMOVE":
                 if (index > -1) {
