@@ -14,8 +14,7 @@ const CategoryProduct: FC<ProductsProps> = ({
   stock,
 }) => {
   const navigate = useNavigate();
-  const cartContext = useContext(CartContext);
-  const {addProduct} = cartContext;
+  const {addProduct} = useContext(CartContext);
   return (
     <article className="category-article">
       <div className="category-product-title">

@@ -1,8 +1,33 @@
-import React from "react"
+import React, { useContext } from "react";
 
-import styled from 'styled-components';
+import styled from "styled-components";
+
+import { Link, useNavigate } from "react-router-dom";
+
+import { CartContext } from "../contexts/cartContext";
 
 const Basket = () => {
+  const navigate = useNavigate();
+  const { getItems } = useContext(CartContext);
+  const renderCart = () => {
+    const cartItems = getItems();
+  
+    if (cartItems.length > 0) {
+      return cartItems.map((p) => (
+        <React.Fragment>
+          <div>
+            <Link to={`/products/${p.id}`}>{p.title}</Link>
+          </div>
+          <BasketQty>{p.quantity}</BasketQty>
+          <BasketPrice>{p.price} Ft</BasketPrice>
+        </React.Fragment>
+      ));
+    } else {
+      return <div>A kosár jelenleg üres</div>;
+    }
+  };
+
+
   return (
     <BasketContainer>
       <BasketTitle>Bevásárlókosár</BasketTitle>
@@ -13,12 +38,10 @@ const Basket = () => {
           <h4>Mennyiség</h4>
           <h4>Ár</h4>
         </BasketHeader>
-        
+
         <BasketHeaderLine />
 
-        <BasketHeader>
-          Kosárban lévő tételek
-        </BasketHeader>
+        <BasketHeader>{renderCart()}</BasketHeader>
 
         <BasketHeaderLine />
 
@@ -29,17 +52,16 @@ const Basket = () => {
   );
 };
 
-
 export default Basket;
 
 const BasketContainer = styled.div`
-    display: grid;
-    padding: 20px;
-    grid-template-rows: 0.25fr 1fr 0.25fr;
-    grid-template-columns: 0.1fr 1fr 0.1fr;
-    width: 100%;
-    justify-items: stretch;
-    align-items: stretch;
+  display: grid;
+  padding: 20px;
+  grid-template-rows: 0.25fr 1fr 0.25fr;
+  grid-template-columns: 0.1fr 1fr 0.1fr;
+  width: 100%;
+  justify-items: stretch;
+  align-items: stretch;
 `;
 
 const BasketTable = styled.div`
@@ -51,13 +73,13 @@ const BasketTable = styled.div`
 `;
 
 const BasketHeader = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 0.5fr 0.5fr;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 0.5fr;
 `;
 
 const BasketHeaderLine = styled.hr`
-    margin-bottom: 20px;
-    border: 1px solid gray;
+  margin-bottom: 20px;
+  border: 1px solid gray;
 `;
 
 const BasketTitle = styled.h2`
@@ -68,19 +90,19 @@ const BasketTitle = styled.h2`
 `;
 
 const BasketQty = styled.h3`
-    font-size: 18px;
-    font-weight: bold;
-    display: grid;
-    grid-template-columns: 0.1fr 0.05fr 0.1fr 0.1fr;
+  font-size: 18px;
+  font-weight: bold;
+  display: grid;
+  grid-template-columns: 0.1fr 0.05fr 0.1fr 0.1fr;
 `;
 
 const BasketPrice = styled.h3`
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
 `;
 
 const BasketTotal = styled.h2`
-    justify-self: end;
+  justify-self: end;
 `;
 
 const BasketButton = styled.button`

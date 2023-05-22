@@ -2,6 +2,7 @@ import React, { createContext, useReducer, ReactNode } from 'react';
 import { CartReducer } from './cartReducer';
 
 interface CartItem {
+  [x: string]: ReactNode;
   // Definiáld a cart elemek típusát
 }
 
