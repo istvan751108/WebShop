@@ -21,7 +21,7 @@ header {
   font-size: 35px;
   color: white;
   display: grid;
-  grid-template-columns: 0.1fr 0.1fr 1fr 0.1fr;
+  grid-template-columns: 0.1fr 5fr 0.1fr;
 }
 
 header a {
@@ -43,7 +43,10 @@ header a {
 }
 
 #headerTitle {
-  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 #headerCartIcon {
@@ -191,7 +194,7 @@ footer a {
   background-color: darkgray;
 }
 
-.product-info-desciption {
+.product-info-description {
   grid-column: 1 / span 3;
   padding: 20px;
 }

@@ -1,6 +1,8 @@
-import React, { FC } from "react";
+import React, { useContext,FC } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ProductsProps } from "../model";
+
+import { CartContext } from "../contexts/cartContext";
 
 const CategoryProduct: FC<ProductsProps> = ({
   id,
@@ -12,6 +14,7 @@ const CategoryProduct: FC<ProductsProps> = ({
   stock,
 }) => {
   const navigate = useNavigate();
+  const {addProduct} = useContext(CartContext);
   return (
     <article className="category-article">
       <div className="category-product-title">
@@ -58,7 +61,7 @@ const CategoryProduct: FC<ProductsProps> = ({
           <button onClick={() => navigate(`/products/${id}`)}>
             Részletes leírás
           </button>
-          <button>Kosárba rakom</button>
+          <button onClick={() => addProduct({id, title, price})}>Kosárba rakom</button>
         </div>
       </aside>
     </article>

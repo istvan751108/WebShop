@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { Categories } from "../model/categories";
+import { HomeIcon, CartIcon } from "./icons";
 
 const Layout: FC<Categories> = ({ categories }) => {
   const renderCategories = () => {
@@ -13,7 +14,19 @@ const Layout: FC<Categories> = ({ categories }) => {
 
   return (
     <>
-      <header>Webáruház</header>
+      <header>
+        <div id="headerHomeIcon">
+          <Link to="/">
+            <HomeIcon width={40} />
+          </Link>
+        </div>
+        <div id="headerTitle">WEBÁRUHÁZ</div>
+        <div id="headerCartIcon">
+          <Link to="/basket">
+            <CartIcon width={40} />
+          </Link>
+        </div>
+      </header>
 
       <section>
         <nav>
