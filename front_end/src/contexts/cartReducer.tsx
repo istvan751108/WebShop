@@ -14,20 +14,28 @@ export class CartReducer {
         if (index === -1) {
           newItems.push({ ...action.payLoad, quantity: 0 });
         } else {
-          newItems[index] = { ...newItems[index], quantity: newItems[index].quantity + 1 };
+          newItems[index] = {
+            ...newItems[index],
+            quantity: newItems[index].quantity + 1,
+          };
         }
         break;
 
       case "REMOVE":
         if (index > -1) {
-          newItems = state.cartItems.filter((x: { id: any; }) => x.id !== action.payLoad.id);
+          newItems = state.cartItems.filter(
+            (x: { id: any }) => x.id !== action.payLoad.id
+          );
         }
         break;
 
       case "DECQTY":
         if (index > -1) {
           if (newItems[index].quantity > 1) {
-            newItems[index] = { ...newItems[index], quantity: newItems[index].quantity - 1 };
+            newItems[index] = {
+              ...newItems[index],
+              quantity: newItems[index].quantity - 1,
+            };
           }
         }
         break;
@@ -35,7 +43,7 @@ export class CartReducer {
       case "CLEAR":
         newItems = [];
         break;
-        
+
       default:
     }
     state.cartItems = newItems;
