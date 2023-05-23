@@ -27,8 +27,8 @@ const Basket = () => {
 
   const handleIncreaseQuantity = (id: string) => {
     increaseQuantity({ id });
-    setCartItems(prevItems => {
-      return prevItems.map(item => {
+    setCartItems((prevItems) => {
+      return prevItems.map((item) => {
         if (item.id === id) {
           return { ...item, quantity: item.quantity + 1 };
         }
@@ -39,8 +39,8 @@ const Basket = () => {
 
   const handleDecreaseQuantity = (id: string) => {
     decreaseQuantity({ id });
-    setCartItems(prevItems => {
-      return prevItems.map(item => {
+    setCartItems((prevItems) => {
+      return prevItems.map((item) => {
         if (item.id === id && item.quantity > 1) {
           return { ...item, quantity: item.quantity - 1 };
         }
@@ -51,8 +51,8 @@ const Basket = () => {
 
   const handleRemoveProduct = (id: string) => {
     removeProduct({ id });
-    setCartItems(prevItems => {
-      return prevItems.filter(item => item.id !== id);
+    setCartItems((prevItems) => {
+      return prevItems.filter((item) => item.id !== id);
     });
   };
 
@@ -66,10 +66,7 @@ const Basket = () => {
           <BasketQty>
             {p.quantity}
             <UpIcon width={20} onClick={() => handleIncreaseQuantity(p.id)} />
-            <DownIcon
-              width={20}
-              onClick={() => handleDecreaseQuantity(p.id)}
-            />
+            <DownIcon width={20} onClick={() => handleDecreaseQuantity(p.id)} />
             <TrashIcon width={20} onClick={() => handleRemoveProduct(p.id)} />
           </BasketQty>
           <BasketPrice>{p.price} Ft</BasketPrice>
@@ -81,8 +78,7 @@ const Basket = () => {
   };
 
   const renderTotal = () => {
-    const items = getItems();
-    const total = items.reduce(
+    const total = cartItems.reduce(
       (acc: number, item: any) =>
         acc +
         (typeof item.price === "number" ? item.price : 0) *
@@ -95,9 +91,7 @@ const Basket = () => {
   return (
     <BasketContainer>
       <BasketTitle>Bevásárlókosár</BasketTitle>
-      <BasketButton onClick={() => navigate("/checkout")}>
-        Pénztár
-      </BasketButton>
+      <BasketButton onClick={() => navigate("/checkout")}>Pénztár</BasketButton>
 
       <BasketTable>
         <BasketHeader>
@@ -110,9 +104,7 @@ const Basket = () => {
         <BasketHeaderLine />
       </BasketTable>
 
-      <BasketButton onClick={handleClearBasket}>
-        Kosár ürítése
-      </BasketButton>
+      <BasketButton onClick={handleClearBasket}>Kosár ürítése</BasketButton>
       <BasketTotal>Összesen: {`${renderTotal()} Ft`}</BasketTotal>
     </BasketContainer>
   );
