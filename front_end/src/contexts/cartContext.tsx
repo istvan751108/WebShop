@@ -33,22 +33,27 @@ const CartContextProvider: React.FC<CartContextProviderProps> = ({
 
   const addProduct = (payLoad: CartItem) => {
     dispatch({ type: "ADD", payLoad });
+    return state.cartItems;
   };
 
   const removeProduct = (payLoad: CartItem) => {
     dispatch({ type: "REMOVE", payLoad });
+    return state.cartItems;
   };
 
   const increaseQuantity = (payLoad: CartItem) => {
     dispatch({ type: "INCQTY", payLoad });
+    return state.cartItems;
   };
 
   const decreaseQuantity = (payLoad: CartItem) => {
     dispatch({ type: "DECQTY", payLoad });
+    return state.cartItems;
   };
 
   const clearBasket = () => {
     dispatch({ type: "CLEAR", payLoad: undefined });
+    return state.cartItems;
   };
 
   const getItems = () => {
