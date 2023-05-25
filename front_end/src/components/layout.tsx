@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { Categories } from "../model/categories";
 import { HomeIcon, CartIcon } from "./icons";
+import Search from "./search";
 
 const Layout: FC<Categories> = ({ categories }) => {
   const renderCategories = () => {
@@ -20,6 +21,7 @@ const Layout: FC<Categories> = ({ categories }) => {
             <HomeIcon width={40} />
           </Link>
         </div>
+        <Search />
         <div id="headerTitle">WEBÁRUHÁZ</div>
         <div id="headerCartIcon">
           <Link to="/basket">
