@@ -1,17 +1,15 @@
 const BASE_URL = "http://localhost:3001";
 
 export const fetcher = async (url: string) => {
-  let responseObject = { errorMessage: "", data: [] };
   try {
     const response = await fetch(BASE_URL + url);
     const responseData = await response.json();
-    responseObject.errorMessage = "";
-    responseObject.data = responseData;
-  } catch (err) {
-    // responseObject.errorMessage = err.message;
+    return { errorMessage: "", data: responseData };
+  } catch (err: any) {
+    return { errorMessage: err.message || "Unknown error", data: [] };
   }
-  return responseObject;
 };
+
 
 export const getCategories = () => {
   return fetcher("/categories");
