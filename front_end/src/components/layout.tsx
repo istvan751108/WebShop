@@ -1,10 +1,14 @@
 import React, { FC } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { Categories } from "../model/categories";
 import { HomeIcon, CartIcon } from "./icons";
 import Search from "./search";
 
 const Layout: FC<Categories> = ({ categories }) => {
+  const location = useLocation();
+
+  const shouldClearSearch = location.pathname !== "/search";
+
   const renderCategories = () => {
     return categories.data.map((c) => (
       <li key={c.id}>
@@ -21,7 +25,7 @@ const Layout: FC<Categories> = ({ categories }) => {
             <HomeIcon width={40} />
           </Link>
         </div>
-        <Search />
+        <Search shouldClear={shouldClearSearch} />
         <div id="headerTitle">WEBÁRUHÁZ</div>
         <div id="headerCartIcon">
           <Link to="/basket">

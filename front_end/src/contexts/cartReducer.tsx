@@ -1,6 +1,9 @@
 const Storage = (cartItems: any) => {
-  localStorage.setItem('cart', JSON.stringify(cartItems.length > 0 ? cartItems: []));
-}
+  localStorage.setItem(
+    "cart",
+    JSON.stringify(cartItems.length > 0 ? cartItems : [])
+  );
+};
 export class CartReducer {
   public static reducer(state: any, action: any) {
     debugger;

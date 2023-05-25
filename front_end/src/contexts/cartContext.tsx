@@ -23,8 +23,9 @@ export const CartContext = createContext<CartContextProps>(
 interface CartContextProviderProps {
   children: ReactNode;
 }
-const Storage = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')!) : [];
-
+const Storage = localStorage.getItem("cart")
+  ? JSON.parse(localStorage.getItem("cart")!)
+  : [];
 
 const initialState = { cartItems: Storage };
 

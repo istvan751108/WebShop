@@ -10,7 +10,6 @@ export const fetcher = async (url: string) => {
   }
 };
 
-
 export const getCategories = () => {
   return fetcher("/categories");
 };
@@ -24,5 +23,5 @@ export const getProductById = (id: number) => {
 };
 
 export const getProductsByQuery = (query: any) => {
-  return fetcher('/products?q=' + query);
-}
+  return fetcher("/products?q=" + query);
+};

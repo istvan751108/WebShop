@@ -13,10 +13,9 @@ const SearchResults = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("s") || "";
 
-
   useEffect(() => {
     const fetchData = async () => {
-        const responseObject = await getProductsByQuery(query);
+      const responseObject = await getProductsByQuery(query);
       setProducts(responseObject);
     };
     fetchData();
@@ -24,14 +23,13 @@ const SearchResults = () => {
 
   const renderProducts = () => {
     if (products.data.length > 0) {
-    return products.data.map((p: any) => (
-      <CategoryProduct key={p.id} {...p}>
-        {p.title}
-      </CategoryProduct>
-    ));
-    }
-    else {
-        return <div>Nincs találat!</div>
+      return products.data.map((p: any) => (
+        <CategoryProduct key={p.id} {...p}>
+          {p.title}
+        </CategoryProduct>
+      ));
+    } else {
+      return <div>Nincs találat!</div>;
     }
   };
 
