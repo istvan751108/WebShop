@@ -1,18 +1,15 @@
 package org.example.model.home;
 public class Home {
     private Long id;
-    private String code;
-    private String status;
+    private String title;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
-    public String getCode() { return code; }
-    public void setCode(String code) { this.code = code; }
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
 
     @Override
-    public String toString() { return "Home [id=" + id + ", code=" + code + ", status=" + status + "]";
+    public String toString() { return "Home [id=" + id + ", title=" + title + "]";
     }
 
 }

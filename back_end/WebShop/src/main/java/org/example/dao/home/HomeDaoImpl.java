@@ -8,7 +8,7 @@ import org.example.model.home.Home;
 import java.util.List;
 
 @Repository
-public class HomeDaoImpl {
+public class HomeDaoImpl implements HomeDao {
     private final NamedParameterJdbcOperations jdbcTemplate;
     private final HomeRowMapper rowMapper;
     public HomeDaoImpl(NamedParameterJdbcOperations jdbcTemplate, HomeRowMapper rowMapper) {
@@ -17,6 +17,6 @@ public class HomeDaoImpl {
     }
     @Override
     public List<Home> getHomes() {
-        return jdbcTemplate.query("select * from customer_order", rowMapper);
+        return jdbcTemplate.query("select * from CATEGORIES", rowMapper);
     }
 }

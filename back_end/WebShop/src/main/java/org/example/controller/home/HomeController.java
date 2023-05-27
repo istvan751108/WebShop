@@ -12,8 +12,16 @@ import java.util.List;
 @Controller
 @RequestMapping("home")
 public class HomeController {
+
+    private final HomeService service;
+
+    public HomeController(HomeService service) {
+        this.service = service;
+    }
+
     @GetMapping
     public ResponseEntity<List<Home>> getHomes(){
-        return new ResponseEntity<>(home, HttpStatus.OK);
+        List<Home> homes = service.getHomes();
+        return new ResponseEntity<>(homes, HttpStatus.OK);
     }
 }

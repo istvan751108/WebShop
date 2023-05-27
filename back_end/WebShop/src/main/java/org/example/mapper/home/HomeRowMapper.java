@@ -14,8 +14,7 @@ public class HomeRowMapper implements RowMapper<Home> {
     public Home mapRow(ResultSet rs, int rowNum) throws SQLException {
         Home home = new Home();
         home.setId(rs.getLong("id"));
-        home.setCode(rs.getString("code"));
-        home.setStatus(rs.getString("status"));
+        home.setTitle(rs.getString("title"));
         return home;
     }
 
