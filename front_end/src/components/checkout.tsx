@@ -9,47 +9,70 @@ const Checkout = () => {
     email: "",
     shippingAddress1: "",
     touched: {
+      name: false,
       email: false,
-      password: false,
       shippingAddress1: false,
     },
+    errors: {
+      name: false,
+      email: false,
+      shippingAddress1: false,
+    },
+    disabled: true,
   });
-  const errors: {
-    [key: string]: boolean;
-  } = {
-    name: form.name.length === 0,
-    email: form.email.length === 0,
-    shippingAddress1: form.shippingAddress1.length === 0,
-  };
-  const disabled = Object.keys(errors).some((x) => errors[x]);
 
   const handleChange = (ev: { target: { name: any; value: any } }) => {
     const { name, value } = ev.target;
     setForm((prevState) => {
-      return {
+      const updatedForm = {
         ...prevState,
         [name]: value,
       };
-    });
-  };
-  const handleBlur = (ev: { target: { name: any } }) => {
-    const { name } = ev.target;
-    setForm((prevState) => {
+      const updatedErrors = {
+        name: updatedForm.name.trim().length === 0,
+        email: updatedForm.email.trim().length === 0,
+        shippingAddress1: updatedForm.shippingAddress1.trim().length === 0,
+      };
+      const isFormValid = !Object.values(updatedErrors).some((error) => error);
       return {
-        ...prevState,
-        touched: { ...form.touched, [name]: true },
+        ...updatedForm,
+        errors: updatedErrors,
+        disabled: !isFormValid,
       };
     });
   };
+
+  const handleBlur = (ev: { target: { name: any } }) => {
+    const { name } = ev.target;
+    setForm((prevState) => {
+      const updatedForm = {
+        ...prevState,
+        touched: { ...prevState.touched, [name]: true },
+      };
+      const updatedErrors = {
+        name: updatedForm.name.trim().length === 0,
+        email: updatedForm.email.trim().length === 0,
+        shippingAddress1: updatedForm.shippingAddress1.trim().length === 0,
+      };
+      const isFormValid = !Object.values(updatedErrors).some((error) => error);
+      return {
+        ...updatedForm,
+        errors: updatedErrors,
+        disabled: !isFormValid,
+      };
+    });
+  };
+
   const handleSubmit = (ev: { preventDefault: () => void }) => {
-    if (disabled) {
+    if (form.disabled) {
+      // Ellenőrizzük, hogy a gomb letiltott-e
       ev.preventDefault();
       return;
     }
     navigate("/orderconfirmation");
   };
   const showError = (field: string) =>
-    errors[field as keyof typeof errors]
+    Error[field as keyof typeof Error]
       ? form.touched[field as keyof typeof form.touched]
       : false;
 
@@ -84,6 +107,7 @@ const Checkout = () => {
             name="email"
             onInvalid={(event) => showError("email") && event.preventDefault()}
             onChange={handleChange}
+            onBlur={handleBlur}
             placeholder="Írja be az e-mail címét"
           />
         </CheckoutTable>
@@ -113,6 +137,8 @@ const Checkout = () => {
               onInvalid={(event) =>
                 showError("shippingAddress1") && event.preventDefault()
               }
+              onChange={handleChange}
+              onBlur={handleBlur}
               placeholder="Írja be az első címsort"
             />
             <input type="text" name="shippingAddress2" />
@@ -120,7 +146,9 @@ const Checkout = () => {
           </CheckoutAddress>
         </CheckoutTable>
         <CancelButton onClick={() => navigate("/basket")}>Törlés</CancelButton>
-        <CheckoutButton disabled={disabled}>Rendelés megerősítése</CheckoutButton>
+        <CheckoutButton disabled={form.disabled}>
+          Rendelés megerősítése
+        </CheckoutButton>
       </CheckoutContainer>
     </form>
   );
