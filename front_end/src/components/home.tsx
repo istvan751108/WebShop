@@ -11,17 +11,17 @@ const Home = () => {
   };
 
   const textStyle: React.CSSProperties = {
-    fontSize: "24px",
+    fontSize: "35px",
     marginBottom: "16px",
     marginTop: "32px",
-    marginLeft: "150px",
+    marginLeft: "320px",
   };
 
   const imageStyle = {
     border: "2px",
-    width: "800px",
+    width: "900px",
     height: "auto", 
-    marginLeft: "150px",
+    marginLeft: "320px",
   };
 
   return (
