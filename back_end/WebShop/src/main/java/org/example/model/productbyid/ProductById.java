@@ -1,5 +1,5 @@
-package org.example.model.productcategories;
-public class ProductCategories {
+package org.example.model.productbyid;
+public class ProductById {
     private Long id;
     private int catId;
     private String title;
@@ -41,4 +41,5 @@ public class ProductCategories {
     @Override
     public String toString() { return "Product [id=" + id + ",catId=" + catId + ", title=" + title + ",productCode=" + productCode + ",image=" + image + ",price=" + price + ",sku=" + sku + ",description=" + description + ",stock=" + stock + "]";
     }
+
 }

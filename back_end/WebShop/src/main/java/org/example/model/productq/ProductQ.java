@@ -1,5 +1,5 @@
-package org.example.model.productcategories;
-public class ProductCategories {
+package org.example.model.productq;
+public class ProductQ {
     private Long id;
     private int catId;
     private String title;

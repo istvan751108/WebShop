@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface ProductCategoriesService {
     List<ProductCategories> getProdCats(int id);
-
 }

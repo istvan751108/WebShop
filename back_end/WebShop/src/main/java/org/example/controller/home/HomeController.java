@@ -19,6 +19,7 @@ public class HomeController {
         this.service = service;
     }
 
+    @CrossOrigin
     @GetMapping
     public ResponseEntity<List<Home>> getHomes(){
         List<Home> homes = service.getHomes();

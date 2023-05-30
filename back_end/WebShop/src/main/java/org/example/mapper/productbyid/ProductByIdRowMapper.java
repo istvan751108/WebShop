@@ -1,6 +1,6 @@
-package org.example.mapper.productcategories;
+package org.example.mapper.productbyid;
 
-import org.example.model.productcategories.ProductCategories;
+import org.example.model.productbyid.ProductById;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
@@ -8,11 +8,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Component
-public class ProductCategoriesRowMapper implements RowMapper<ProductCategories> {
+public class ProductByIdRowMapper implements RowMapper<ProductById> {
 
     @Override
-    public ProductCategories mapRow(ResultSet rs, int rowNum) throws SQLException {
-        ProductCategories prodCat = new ProductCategories();
+    public ProductById mapRow(ResultSet rs, int rowNum) throws SQLException {
+        ProductById prodCat = new ProductById();
         prodCat.setId(rs.getLong("id"));
         prodCat.setCatId(rs.getInt("catId"));
         prodCat.setTitle(rs.getString("title"));
@@ -24,4 +24,5 @@ public class ProductCategoriesRowMapper implements RowMapper<ProductCategories> 
         prodCat.setStock(rs.getInt("stock"));
         return prodCat;
     }
+
 }
