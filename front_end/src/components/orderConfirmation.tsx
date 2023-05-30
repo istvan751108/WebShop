@@ -19,7 +19,11 @@ const OrderConfirmation = () => {
 
   const imageStyle = {
     border: "2px",
-    marginLeft: "150px",
+    width: "95%",
+    height: "auto",
+    display: "block",
+    marginRight: "auto",
+    marginLeft: "auto",
   };
 
   return (
