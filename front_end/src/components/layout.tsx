@@ -1,9 +1,14 @@
 import React, { FC } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { Categories } from "../model/categories";
 import { HomeIcon, CartIcon } from "./icons";
+import Search from "./search";
 
 const Layout: FC<Categories> = ({ categories }) => {
+  const location = useLocation();
+
+  const shouldClearSearch = location.pathname !== "/search";
+
   const renderCategories = () => {
     return categories.data.map((c) => (
       <li key={c.id}>
@@ -20,6 +25,7 @@ const Layout: FC<Categories> = ({ categories }) => {
             <HomeIcon width={40} />
           </Link>
         </div>
+        <Search shouldClear={shouldClearSearch} />
         <div id="headerTitle">WEBÁRUHÁZ</div>
         <div id="headerCartIcon">
           <Link to="/basket">
@@ -28,18 +34,13 @@ const Layout: FC<Categories> = ({ categories }) => {
         </div>
       </header>
 
-      <section>
-        <nav>
-          {categories.errorMessage && (
-            <div>Hiba: {categories.errorMessage} </div>
-          )}
-          <ul>{categories.data && renderCategories()}</ul>
-        </nav>
-        <article>
-          <Outlet />
-        </article>
-      </section>
-
+<section style={{ display: "flex", justifyContent: "center" }}>
+  <nav>
+    {categories.errorMessage && <div>Hiba: {categories.errorMessage}</div>}
+    <ul>{categories.data && renderCategories()}</ul>
+  </nav>
+  <article><Outlet /></article>
+</section>
       <footer>
         <Link to="/">Kezdőlap</Link> | <Link to="/basket">Kosár</Link>
       </footer>

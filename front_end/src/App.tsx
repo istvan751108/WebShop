@@ -12,6 +12,7 @@ import Category from "./components/category";
 import Home from "./components/home";
 import Layout from "./components/layout";
 import OrderConfirmation from "./components/orderConfirmation";
+import SearchResults from "./components/searchResult";
 
 function App() {
   const [categories, setCategories] = useState<{
@@ -36,6 +37,7 @@ function App() {
             <Route path="basket" element={<Basket />} />
             <Route path="checkout" element={<Checkout />} />
             <Route path="orderconfirmation" element={<OrderConfirmation />} />
+            <Route path="search" element={<SearchResults />} />
             <Route path="products/:productId" element={<ProductDetail />} />
             <Route path="categories/:categoryId" element={<Category />} />
           </Route>
