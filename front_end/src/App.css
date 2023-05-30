@@ -61,11 +61,17 @@ section {
 
 /* Style the navigation menu */
 nav {
-  -webkit-flex: 0.5;
-  -ms-flex: 0.5;
-  flex: 0.1;
+  flex: 0 0 auto;
+  width: 140px;
   background: #ccc;
   padding: 20px;
+}
+article {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
 }
 
 /* Style the list inside the menu */

@@ -34,18 +34,13 @@ const Layout: FC<Categories> = ({ categories }) => {
         </div>
       </header>
 
-      <section>
-        <nav>
-          {categories.errorMessage && (
-            <div>Hiba: {categories.errorMessage} </div>
-          )}
-          <ul>{categories.data && renderCategories()}</ul>
-        </nav>
-        <article>
-          <Outlet />
-        </article>
-      </section>
-
+<section style={{ display: "flex", justifyContent: "center" }}>
+  <nav>
+    {categories.errorMessage && <div>Hiba: {categories.errorMessage}</div>}
+    <ul>{categories.data && renderCategories()}</ul>
+  </nav>
+  <article><Outlet /></article>
+</section>
       <footer>
         <Link to="/">Kezdőlap</Link> | <Link to="/basket">Kosár</Link>
       </footer>
