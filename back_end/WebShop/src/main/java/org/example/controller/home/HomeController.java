@@ -10,7 +10,7 @@ import org.example.service.home.HomeService;
 import java.util.List;
 
 @Controller
-@RequestMapping("home")
+@RequestMapping("categories")
 public class HomeController {
 
     private final HomeService service;

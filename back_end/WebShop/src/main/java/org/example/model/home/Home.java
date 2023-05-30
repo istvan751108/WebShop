@@ -9,7 +9,7 @@ public class Home {
     public void setTitle(String title) { this.title = title; }
 
     @Override
-    public String toString() { return "Home [id=" + id + ", title=" + title + "]";
+    public String toString() { return "{Categories: [id=" + id + ", title=" + title + "]}";
     }
 
 }
