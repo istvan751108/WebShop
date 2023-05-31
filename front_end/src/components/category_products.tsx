@@ -28,25 +28,7 @@ const CategoryProduct: FC<ProductsProps> = ({
       </figure>
 
       <aside className="category-product-info-header">
-        <div className="category-product-info-dimensions">
-          <h3>Méretek</h3>
-          <label> {specs.dimensions} </label>
-        </div>
-
-        {specs.capacity && (
-          <div className="category-product-info-capacity">
-            <h3>Kapacitás</h3>
-            <label> {specs.capacity} </label>
-          </div>
-        )}
-
-        <div className="category-product-info-features">
-          <h3>Tulajdonságok</h3>
-          <ul>
-            {features?.map((f, i) => {
-              return <li key={`feature${i}`}> {f} </li>;
-            })}
-          </ul>
+        <div>
         </div>
       </aside>
 

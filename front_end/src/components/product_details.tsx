@@ -30,25 +30,7 @@ const ProductDetail = () => {
       </figure>
 
       <aside className="category-product-info-header">
-        <div className="category-product-info-dimensions">
-          <h3>Méretek</h3>
-          <label> {product.data.specs?.dimensions} </label>
-        </div>
-
-        {product.data.specs?.capacity && (
-          <div className="category-product-info-capacity">
-            <h3>Kapacitás</h3>
-            <label> {product.data.specs?.capacity} </label>
-          </div>
-        )}
-
-        <div className="category-product-info-features">
-          <h3>Tulajdonságok</h3>
-          <ul>
-            {product.data.features?.map((f: string, i: number) => (
-              <li key={`feature${i}`}>{f}</li>
-            ))}
-          </ul>
+        <div>
         </div>
       </aside>
 
