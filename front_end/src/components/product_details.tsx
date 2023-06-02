@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../fetcher";
 
 const ProductDetail = () => {
-  const [product, setProduct] = useState<{ errorMessage: string; data: any }>({
-    errorMessage: "",
-    data: {},
-  });
+  const [product, setProduct] = useState<{ data: any }>({data: {},});
   const { productId } = useParams<{ productId: string | undefined }>();
 
   React.useEffect(() => {

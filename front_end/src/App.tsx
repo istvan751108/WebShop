@@ -1,10 +1,6 @@
 import "./App.css";
-import React, { useEffect, useState } from "react";
-
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import { getCategories } from "./fetcher";
-
 import ProductDetail from "./components/product_details";
 import Basket from "./components/basket";
 import Checkout from "./components/checkout";
@@ -15,24 +11,13 @@ import OrderConfirmation from "./components/orderConfirmation";
 import SearchResults from "./components/searchResult";
 
 function App() {
-  const [categories, setCategories] = useState<{
-    errorMessage: string;
-    data: any[];
-  }>({ errorMessage: "", data: [] });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const responseObject = await getCategories();
-      setCategories(responseObject);
-    };
-    fetchData();
-  }, []);
 
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout categories={categories} />}>
+          <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="basket" element={<Basket />} />
             <Route path="checkout" element={<Checkout />} />
