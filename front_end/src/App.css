@@ -55,8 +55,8 @@ header a {
 
 /* Container for flexboxes */
 section {
-  display: -webkit-flex;
   display: flex;
+  flex-direction: row;
 }
 
 /* Style the navigation menu */

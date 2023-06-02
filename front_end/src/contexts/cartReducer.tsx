@@ -6,7 +6,6 @@ const Storage = (cartItems: any) => {
 };
 export class CartReducer {
   public static reducer(state: any, action: any) {
-    debugger;
 
     let index = -1;
     if (action.payLoad) {

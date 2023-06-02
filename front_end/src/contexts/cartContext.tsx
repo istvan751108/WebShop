@@ -3,7 +3,6 @@ import { CartReducer } from "./cartReducer";
 
 interface CartItem {
   [x: string]: ReactNode;
-  // Definiáld a cart elemek típusát
 }
 
 interface CartContextProps {

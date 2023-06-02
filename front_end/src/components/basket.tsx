@@ -13,10 +13,10 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { UpIcon, DownIcon, TrashIcon } from "./icons";
 import { CartContext } from "../contexts/cartContext";
+import { getProductById } from "../fetcher";
 
 const Basket = () => {
   const [cartItems, setCartItems] = useState<any[]>([]);
-
   const navigate = useNavigate();
   const {
     getItems,
@@ -27,7 +27,31 @@ const Basket = () => {
   } = useContext(CartContext);
 
   useEffect(() => {
-    setCartItems(getItems());
+    const fetchData = async () => {
+      const items = getItems();
+      const updatedItems = [];
+
+      for (const item of items) {
+        try {
+          const response = await getProductById(Number(item.id));
+          const updatedItem = {
+            ...item,
+            title: response.data.title,
+            price: response.data.price,
+          };
+          updatedItems.push(updatedItem);
+        } catch (error) {
+          console.error(
+            `Hiba történt a lekérdezés során az elemhez azonosítóval: ${item.id}`,
+            error
+          );
+        }
+      }
+
+      setCartItems(updatedItems);
+    };
+
+    fetchData();
   }, [getItems]);
 
   const handleClearBasket = () => {
@@ -37,49 +61,50 @@ const Basket = () => {
 
   const handleIncreaseQuantity = (id: string) => {
     increaseQuantity({ id });
-    setCartItems((prevItems) => {
-      return prevItems.map((item) => {
-        if (item.id === id) {
-          return { ...item, quantity: item.quantity + 1 };
-        }
-        return item;
-      });
-    });
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
   };
 
   const handleDecreaseQuantity = (id: string) => {
     decreaseQuantity({ id });
-    setCartItems((prevItems) => {
-      return prevItems.map((item) => {
-        if (item.id === id && item.quantity > 1) {
-          return { ...item, quantity: item.quantity - 1 };
-        }
-        return item;
-      });
-    });
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+    );
   };
 
   const handleRemoveProduct = (id: string) => {
     removeProduct({ id });
-    setCartItems((prevItems) => {
-      return prevItems.filter((item) => item.id !== id);
-    });
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
   const renderCart = () => {
     if (cartItems.length > 0) {
-      return cartItems.map((p, index) => (
-        <React.Fragment key={index}>
-          <div>
-            <Link to={`/products/${p.id}`}>{p.title}</Link>
-          </div>
+      return cartItems.map((item) => (
+        <React.Fragment key={item.id}>
+          <Link to={`/products/${item.id}`}>{item.title}</Link>
           <BasketQty>
-            {p.quantity}
-            <UpIcon width={20} onClick={() => handleIncreaseQuantity(p.id)} />
-            <DownIcon width={20} onClick={() => handleDecreaseQuantity(p.id)} />
-            <TrashIcon width={20} onClick={() => handleRemoveProduct(p.id)} />
+            {item.quantity}
+            <UpIcon
+              width={20}
+              onClick={() => handleIncreaseQuantity(item.id)}
+            />
+            <DownIcon
+              width={20}
+              onClick={() => handleDecreaseQuantity(item.id)}
+            />
+            <TrashIcon
+              width={20}
+              onClick={() => handleRemoveProduct(item.id)}
+            />
           </BasketQty>
-          <BasketPrice>{p.price} Ft</BasketPrice>
+          <BasketPrice>{item.price} Ft</BasketPrice>
         </React.Fragment>
       ));
     } else {
