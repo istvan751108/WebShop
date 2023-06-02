@@ -1,4 +1,4 @@
-import React, { useContext,FC } from "react";
+import React, { useContext, FC } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ProductsProps } from "../model";
 
@@ -14,7 +14,7 @@ const CategoryProduct: FC<ProductsProps> = ({
   stock,
 }) => {
   const navigate = useNavigate();
-  const {addProduct} = useContext(CartContext);
+  const { addProduct } = useContext(CartContext);
   return (
     <article className="category-article">
       <div className="category-product-title">
@@ -28,7 +28,25 @@ const CategoryProduct: FC<ProductsProps> = ({
       </figure>
 
       <aside className="category-product-info-header">
-        <div>
+        <div className="category-product-info-dimensions">
+          <h3>Méretek</h3>
+          <label> {specs.dimensions} </label>
+        </div>
+
+        {specs.capacity && (
+          <div className="category-product-info-capacity">
+            <h3>Kapacitás</h3>
+            <label> {specs.capacity} </label>
+          </div>
+        )}
+
+        <div className="category-product-info-features">
+          <h3>Tulajdonságok</h3>
+          <ul>
+            {features?.map((f, i) => {
+              return <li key={`feature${i}`}> {f} </li>;
+            })}
+          </ul>
         </div>
       </aside>
 
@@ -43,7 +61,7 @@ const CategoryProduct: FC<ProductsProps> = ({
           <button onClick={() => navigate(`/products/${id}`)}>
             Részletes leírás
           </button>
-          <button onClick={() => addProduct({id, title, price})}>Kosárba rakom</button>
+          <button onClick={() => addProduct({ id, title, price })}>Kosárba rakom</button>
         </div>
       </aside>
     </article>

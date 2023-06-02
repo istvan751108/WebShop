@@ -4,10 +4,7 @@ import { getProducts } from "../fetcher";
 import CategoryProduct from "./category_products";
 
 const Category = () => {
-  const [products, setProducts] = useState({
-    errorMessage: "",
-    data: [],
-  });
+  const [products, setProducts] = useState({ data: [] });
   const { categoryId } = useParams();
 
   useEffect(() => {
@@ -30,7 +27,6 @@ const Category = () => {
 
   return (
     <div>
-      {products.errorMessage && <div>Hiba: {products.errorMessage}</div>}
       {products.data && renderProducts()}
     </div>
   );
