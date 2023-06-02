@@ -16,7 +16,7 @@ const textStyle: React.CSSProperties = {
 };
 const imageStyle = {
   border: "2px",
-  width: "95%",
+  width: "80%",
   height: "auto",
   display: "block",
   marginRight: "auto",
