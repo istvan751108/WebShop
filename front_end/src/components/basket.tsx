@@ -71,7 +71,7 @@ const Basket = () => {
   const handleDecreaseQuantity = (id: string) => {
     decreaseQuantity({ id });
     setCartItems((prevItems) =>
-      prevItems.map((item) =>
+      prevItems.map((item: { id: string; quantity: number; }) =>
         item.id === id && item.quantity > 1
           ? { ...item, quantity: item.quantity - 1 }
           : item
