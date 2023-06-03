@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../fetcher";
 
+import { CartContext } from "../contexts/cartContext";
+
 const ProductDetail = () => {
-  const [product, setProduct] = useState<{ data: any }>({data: {},});
+  const [product, setProduct] = useState<{ data: any }>({ data: {} });
   const { productId } = useParams<{ productId: string | undefined }>();
+  const { addProduct } = useContext(CartContext);
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -15,6 +18,11 @@ const ProductDetail = () => {
     };
     fetchData();
   }, [productId]);
+
+  const handleAddToCart = () => {
+    const { id, title, price } = product.data;
+    addProduct({ id, title, price });
+  };
 
   return (
     <article className="category-article">
@@ -27,8 +35,7 @@ const ProductDetail = () => {
       </figure>
 
       <aside className="category-product-info-header">
-        <div>
-        </div>
+        <div></div>
       </aside>
 
       <aside className="category-product-finance">
@@ -41,7 +48,7 @@ const ProductDetail = () => {
         </div>
 
         <div className="category-product-action">
-          <button>Kosárba rakom</button>
+          <button onClick={handleAddToCart}>Kosárba rakom</button>
         </div>
       </aside>
 
