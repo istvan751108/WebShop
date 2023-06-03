@@ -11,7 +11,7 @@ import {
   BasketButton,
 } from "./basketStyles";
 import { Link, useNavigate } from "react-router-dom";
-import { UpIcon, DownIcon, TrashIcon } from "./icons";
+import { DownIcon, UpIcon, TrashIcon } from "../components/icons";
 import { CartContext } from "../contexts/cartContext";
 import { getProductById } from "../fetcher";
 
