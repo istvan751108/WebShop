@@ -19,7 +19,7 @@ public class ProductCategoriesController {
         this.service = service;
     }
 
-    @CrossOrigin
+
     @GetMapping
     public ResponseEntity<List<ProductCategories>> getProdCats(@RequestParam int catId){
         return new ResponseEntity<>(service.getProdCats(catId), HttpStatus.OK);

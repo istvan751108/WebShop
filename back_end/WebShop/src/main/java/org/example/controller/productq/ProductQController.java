@@ -22,7 +22,7 @@ public class ProductQController {
         this.service = service;
     }
 
-    @CrossOrigin
+
     @GetMapping
     public ResponseEntity<List<ProductQ>> getProdSearch(@RequestParam String q){
         return new ResponseEntity<>(service.getProdSearch(q), HttpStatus.OK);

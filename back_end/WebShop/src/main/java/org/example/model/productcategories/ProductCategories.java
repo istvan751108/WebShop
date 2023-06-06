@@ -1,4 +1,9 @@
 package org.example.model.productcategories;
+
+import jakarta.persistence.ElementCollection;
+
+import java.util.List;
+
 public class ProductCategories {
     private Long id;
     private int catId;
@@ -8,6 +13,8 @@ public class ProductCategories {
     private int price;
     private String sku;
     private String description;
+    @ElementCollection
+    private List<String> features;
     private int stock;
 
     public Long getId() { return id; }

@@ -19,7 +19,7 @@ public class ProductByIdController {
         this.service = service;
     }
 
-    @CrossOrigin
+
     @GetMapping("/products/{id}")
     public ResponseEntity<List<ProductById>> getProdById(@PathVariable int id){
         return new ResponseEntity<>(service.getProdById(id), HttpStatus.OK);
